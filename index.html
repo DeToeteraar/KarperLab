@@ -23,6 +23,9 @@
       /* KarperLab palette (anthracite + warm light) */
       --kl-ink: #111417;        /* darkest */
       --kl-anth-900: #111417;   /* anthracite (deeper) */
+      --kl-nav-divider-h: 12px;  /* thickness of the light band under the navbar */
+      --kl-nav-pad-y: 0.95rem; /* navbar vertical padding (thicker bar) */
+      --kl-nav-scroll-offset: 120px; /* anchor offset for in-page links */
       --kl-anth-800: #2A3036;   /* slightly lighter */
       --kl-anth-700: #343C44;   /* borders on dark */
 
@@ -39,6 +42,7 @@
       --kl-radius: 18px;
       --kl-shadow-sm: 0 10px 22px rgba(17, 20, 23, 0.10);
       --kl-shadow-md: 0 18px 40px rgba(17, 20, 23, 0.12);
+      --kl-hero-bg: linear-gradient(135deg, rgba(31, 36, 40, 0.96), rgba(17, 20, 23, 0.92));
     }
 
     body {
@@ -103,11 +107,32 @@
     }
 
     /* Improve anchor jumps */
-    section { scroll-margin-top: 96px; }
+    section { scroll-margin-top: var(--kl-nav-scroll-offset); }
 
-    /* Navbar: solid dark background */
-    .navbar {
+    /* Navbar: solid dark background + light band divider */
+    .kl-navbar {
       background: var(--kl-anth-900) !important;
+      position: relative;
+      z-index: 10;
+      padding-top: var(--kl-nav-pad-y);
+      padding-bottom: var(--kl-nav-pad-y);
+    }
+
+    /* Thick light band between navbar and hero (matches the light blocks vibe) */
+    .kl-navbar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: calc(-1 * var(--kl-nav-divider-h));
+      height: var(--kl-nav-divider-h);
+      background: linear-gradient(
+        to bottom,
+        rgba(245, 242, 234, 0.95),
+        rgba(245, 242, 234, 0.55)
+      );
+      box-shadow: 0 10px 22px rgba(17, 20, 23, 0.18);
+      pointer-events: none;
     }
 
     /* Navbar brand: no background chip */
@@ -151,8 +176,7 @@
     .hero {
       position: relative;
       overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(31, 36, 40, 0.96), rgba(17, 20, 23, 0.92));
+      background: var(--kl-hero-bg);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -246,6 +270,11 @@
       box-shadow: 0 26px 70px rgba(0,0,0,0.38);
     }
 
+    /* Pilot band: match the hero background exactly */
+    #pilot.kl-band--dark {
+      background: var(--kl-hero-bg);
+    }
+
     /* Section layout helpers (no background box anymore) */
     .kl-panel {
       padding: 0;
@@ -282,8 +311,8 @@
     .pos-mid { object-position: center 45%; }
     .pos-low { object-position: center 70%; }
     /* Specific fixes */
-    .pos-reels { object-position: center 68%; }   /* center reels: less top cut-off */
-    .pos-fisher { object-position: center 60%; }  /* show more of the angler (not just head) */
+    .pos-reels { object-position: center 75%; }   /* center reels: less top cut-off */
+    .pos-fisher { object-position: center 47%; }  /* include sun/sky (avoid head-only crop) */
 
     /* Fix: ensure text stays readable inside the white hero card */
     .hero .kl-card {
@@ -302,7 +331,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg border-bottom">
+<nav class="navbar navbar-expand-lg kl-navbar">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#top">
       <img
@@ -328,7 +357,7 @@
   </div>
 </nav>
 
-<header id="top" class="hero py-5">
+<header id="top" class="hero py-5" style="padding-top: calc(3rem + var(--kl-nav-divider-h));">
   <div class="container">
     <div class="row align-items-center g-4">
       <div class="col-lg-8 hero-copy">
