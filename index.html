@@ -25,7 +25,7 @@
       --kl-anth-900: #111417;   /* anthracite (deeper) */
       --kl-nav-divider-h: 12px;  /* thickness of the light band under the navbar */
       --kl-nav-pad-y: 0.95rem; /* navbar vertical padding (thicker bar) */
-      --kl-nav-scroll-offset: 120px; /* anchor offset for in-page links */
+      --kl-nav-scroll-offset: 140px; /* anchor offset for in-page links */
       --kl-anth-800: #2A3036;   /* slightly lighter */
       --kl-anth-700: #343C44;   /* borders on dark */
 
@@ -108,6 +108,8 @@
 
     /* Improve anchor jumps */
     section { scroll-margin-top: var(--kl-nav-scroll-offset); }
+    /* Pilot: anchor to the CTA buttons, not the top of the section */
+    #pilot-cta { scroll-margin-top: 843px; }
 
     /* Navbar: solid dark background + light band divider */
     .kl-navbar {
@@ -351,7 +353,7 @@
         <li class="nav-item"><a class="nav-link" href="#wat-je-krijgt">Wat je krijgt</a></li>
         <li class="nav-item"><a class="nav-link" href="#werkwijze">Werkwijze</a></li>
         <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-        <li class="nav-item"><a class="btn btn-accent ms-lg-3" href="#pilot">Pilot aanvragen</a></li>
+        <li class="nav-item"><a class="btn btn-accent ms-lg-3" href="#pilot-cta">Pilot aanvragen</a></li>
       </ul>
     </div>
   </div>
@@ -365,7 +367,7 @@
         <p class="lead mb-3">Persoonlijke karpercoaching voor drukbezette vissers in Noord-Holland. In één pilot-sessie krijg je een concreet plan om vaker te vangen met je beperkte vistijd.</p>
         <p class="mb-4">Beperkte plekken • antwoord binnen 48 uur</p>
         <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-accent" href="#pilot">Vraag de pilot aan</a>
+          <a class="btn btn-accent" href="#pilot-cta">Vraag de pilot aan</a>
           <a class="btn btn-outline-light" href="#wat-je-krijgt">Bekijk wat je krijgt</a>
         </div>
       </div>
@@ -376,10 +378,10 @@
           <p class="mb-3">3 uur • materiaalcheck + wateranalyse + aanvalsplan</p>
           <div class="d-flex align-items-baseline gap-2 mb-3">
             <div class="h3 mb-0">€249</div>
-            <div class="text-muted">introductie</div>
+            <div class="text-muted">introductieprijs</div>
           </div>
-          <a class="btn btn-accent w-100" href="#pilot">Pilot aanvragen</a>
-          <div class="text-muted small mt-2">Prijsanker: uitgebreide sessie vanaf €399.</div>
+          <a class="btn btn-accent w-100" href="#pilot-cta">Pilot aanvragen</a>
+          <div class="text-muted small mt-2">Uitgebreide sessie: vanaf €399.</div>
         </div>
       </div>
 
@@ -393,7 +395,7 @@
     <div class="container">
       <div class="kl-panel">
       <h2 class="h4 mb-3">Voor wie is dit?</h2>
-      <img class="kl-section-photo mb-4 pos-mid" src="assets/img/photos/voorwie_drone-banner.jpg" alt="Stek aan het water van bovenaf" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/voorwie_drone-banner.jpeg';">
+      <img class="kl-section-photo mb-4 pos-fisher" src="assets/img/photos/werkwijze_silhouet_vissen.jpg" alt="Visser bij zonsondergang" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/voorwie_drone-banner.jpeg';">
       <div class="row g-3">
         <div class="col-md-4">
           <div class="h-100 p-4 border rounded kl-card">
@@ -422,7 +424,7 @@
     <div class="container">
       <div class="kl-panel">
       <h2 class="h4 mb-3">Wat je krijgt</h2>
-      <img class="kl-section-photo mb-4 pos-reels" src="assets/img/photos/watjekrijgt_materiaal_detail.jpg" alt="Detail van molen en lijn" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/faq_water_textuur.jpg';">
+      <img class="kl-section-photo mb-4 pos-reels" src="assets/img/photos/voorwie_drone-banner.jpg" alt="Water en omgeving van bovenaf" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/faq_water_textuur.jpg';">
       <div class="row g-3">
         <div class="col-md-4">
           <div class="h-100 p-4 rounded kl-surface kl-shadow">
@@ -433,7 +435,7 @@
         <div class="col-md-4">
           <div class="h-100 p-4 rounded kl-surface kl-shadow">
             <h3 class="h6">Wateranalyse</h3>
-            <p class="mb-0">We zoeken patronen en logische hotspots op jouw water (observatie, stekkeuze, aanpak).</p>
+            <p class="mb-0">We zoeken patronen en logische hotspots op jouw water: observatie, stekkeuze en aanpak.</p>
           </div>
         </div>
         <div class="col-md-4">
@@ -451,7 +453,7 @@
     <div class="container">
       <div class="kl-panel">
       <h2 class="h4 mb-3">Hoe verloopt de pilot?</h2>
-      <img class="kl-section-photo mb-4 pos-fisher" src="assets/img/photos/werkwijze_silhouet_vissen.jpg" alt="Silhouet van een visser bij zonsondergang" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/faq_water_textuur.jpg';">
+      <img class="kl-section-photo mb-4 pos-reels" src="assets/img/photos/watjekrijgt_materiaal_detail.jpg" alt="Detail van molens en hengels" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/faq_water_textuur.jpg';">
       <div class="row g-3">
         <div class="col-md-4">
           <div class="h-100 p-4 border rounded kl-card">
@@ -485,7 +487,7 @@
         <div class="col-md-6">
           <div class="h-100 p-4 rounded kl-surface kl-shadow">
             <div class="fw-semibold mb-1">Hoe lang duurt de pilot?</div>
-            <div class="text-muted">Ongeveer 3 uur (intake, materiaalcheck, wateranalyse en plan).</div>
+            <div class="text-muted">Ongeveer 3 uur: intake, materiaalcheck, wateranalyse en plan.</div>
           </div>
         </div>
         <div class="col-md-6">
@@ -503,7 +505,7 @@
         <div class="col-md-6">
           <div class="h-100 p-4 rounded kl-surface kl-shadow">
             <div class="fw-semibold mb-1">Waarom een pilot?</div>
-            <div class="text-muted">Dit is de snelle, no-nonsense versie om te kijken of KarperLab bij jou (en je water) past.</div>
+            <div class="text-muted">Dit is de compacte, praktische sessie om jouw aanpak snel scherper te krijgen — zonder gedoe, met een concreet plan.</div>
           </div>
         </div>
       </div>
@@ -516,17 +518,20 @@
       <div class="kl-panel">
       <h2 class="h4 mb-2">Pilot aanvragen</h2>
       <img class="kl-section-photo mb-4 pos-mid" src="assets/img/photos/pilot_karper_in_water.jpg" alt="Karper in het water" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/faq_water_textuur.jpg';">
-      <p class="mb-3">Wil je meedoen aan de pilot (validatie)? Mail me met de info hieronder. Dan reageer ik met een voorstel en de eerstvolgende mogelijkheid.</p>
+      <p class="mb-3">Wil je meedoen aan de pilot? Mail me met de info hieronder. Dan reageer ik met een voorstel en de eerstvolgende mogelijkheid.</p>
 
       <ul class="mb-3 text-muted">
-        <li>Op welk water/regio je vooral vist (globaal)</li>
-        <li>Hoe vaak je gemiddeld gaat</li>
-        <li>Wat je nu het meeste tegenhoudt / je doel</li>
-        <li>Telefoonnummer (optioneel)</li>
+        <li>Op welk water je vooral vist (naam + plaats)</li>
+        <li>Hoeveel ervaring je hebt (beginner / gemiddeld / gevorderd + aantal jaren)</li>
+        <li>Hoe vaak je gemiddeld vist en hoeveel tijd je meestal hebt per sessie</li>
+        <li>Wat je nu het meeste tegenhoudt en wat je graag wilt bereiken</li>
+        <li>Telefoonnummer – optioneel</li>
       </ul>
+      <p class="text-muted small mb-3">Pilot-sessie: €249 (±3 uur). Uitgebreide sessie mogelijk vanaf €399.</p>
+      <div id="pilot-cta" aria-hidden="true"></div>
 
       <div class="d-flex flex-column flex-sm-row gap-2">
-        <a class="btn btn-accent flex-fill" href="mailto:info@karperlab.nl?subject=KarperLab%20pilot-aanvraag&body=Beste%20KarperLab%2C%0A%0AIk%20wil%20graag%20een%20pilot-sessie%20aanvragen.%0A%0A1%29%20Regio/water%20%28globaal%29%3A%0A2%29%20Hoe%20vaak%20vis%20ik%20gemiddeld%3A%20%0A3%29%20Grootste%20uitdaging/doel%3A%20%0ATelefoonnummer%20%28optioneel%29%3A%20%0A%0AGroet%2C%0A">Mail voor de pilot</a>
+        <a class="btn btn-accent flex-fill" href="mailto:info@karperlab.nl?subject=KarperLab%20pilot-aanvraag&body=Beste%20KarperLab%2C%0A%0AIk%20wil%20graag%20een%20pilot-sessie%20aanvragen.%0A%0A1%29%20Op%20welk%20water%20vis%20ik%20vooral%20%28naam%20%2B%20plaats%29%3A%0A2%29%20Hoeveel%20ervaring%20heb%20ik%20%28beginner%20%2F%20gemiddeld%20%2F%20gevorderd%20%2B%20aantal%20jaren%29%3A%0A3%29%20Hoe%20vaak%20vis%20ik%20gemiddeld%20en%20hoeveel%20tijd%20heb%20ik%20meestal%20per%20sessie%3A%0A4%29%20Wat%20houdt%20mij%20nu%20het%20meeste%20tegen%20en%20wat%20wil%20ik%20graag%20bereiken%3A%0ATelefoonnummer%20-%20optioneel%3A%0A%0AGroet%2C%0A">Mail voor de pilot</a>
         <a class="btn btn-outline-light flex-fill" href="#top">Terug naar boven</a>
       </div>
 
@@ -539,8 +544,9 @@
     <div class="container">
       <div class="kl-panel">
       <h2 class="h4 mb-2">Privacy & cookies</h2>
-      <p class="mb-2">Deze site gebruikt geen tracking en plaatst geen marketingcookies. De enige actie is een <em>mailto</em>-link: je e-mailapp opent en jij beslist of je het bericht verstuurt.</p>
-      <p class="mb-0 text-muted small">Als we later analytics of embeds toevoegen, komt hier een update (en eventueel een cookie-banner). Vragen: <a href="mailto:info@karperlab.nl">info@karperlab.nl</a>.</p>
+      <p class="mb-2">Deze site gebruikt geen tracking en plaatst geen marketingcookies.</p>
+      <p class="mb-2">Als je op “Mail voor de pilot” klikt, opent je e-mailapp met een ingevuld bericht. Jij beslist of je het verstuurt. Je gegevens worden alleen gebruikt om op je aanvraag te reageren.</p>
+      <p class="mb-0 text-muted small">Vragen? Mail naar <a href="mailto:info@karperlab.nl">info@karperlab.nl</a>.</p>
       </div>
     </div>
   </section>
@@ -551,7 +557,7 @@
         <div class="row g-3 align-items-center">
           <div class="col-md-6">
             <div class="fw-semibold">KarperLab</div>
-            <div class="text-muted small">Karpercoaching in Noord-Holland (en omgeving).</div>
+            <div class="text-muted small">Karpercoaching in Noord-Holland en omgeving.</div>
           </div>
           <div class="col-md-6 text-md-end">
             <a class="link-light text-decoration-none me-3" href="#top">Naar boven</a><a class="link-light text-decoration-none me-3" href="#privacy">Privacy</a>
@@ -567,8 +573,35 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</script>
 <script>
+  // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Custom scroll for Pilot CTA (anchor from bottom of viewport)
+  document.querySelectorAll('a[href="#pilot-cta"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const target = document.getElementById('pilot-cta');
+      if (!target) return;
+
+      const rect = target.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Position so CTA button sits slightly above the bottom of the screen
+      const offsetFromBottom = 120; // px
+      const scrollTop =
+        window.pageYOffset +
+        rect.top -
+        (viewportHeight - offsetFromBottom);
+
+      window.scrollTo({
+        top: scrollTop,
+        behavior: 'smooth'
+      });
+    });
+  });
 </script>
 </body>
 </html>
