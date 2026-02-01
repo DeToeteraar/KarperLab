@@ -638,9 +638,10 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // Custom scroll for CTA anchors (position from bottom of viewport)
-  const CTA_SCROLL_OFFSET_FROM_BOTTOM = 50; // px
+  const DEFAULT_SCROLL_OFFSET_FROM_BOTTOM = 50; // px
+  const PILOT_SCROLL_OFFSET_FROM_BOTTOM = 100; // px
 
-  function bindBottomAnchorScroll(anchorId) {
+  function bindBottomAnchorScroll(anchorId, offsetFromBottom = DEFAULT_SCROLL_OFFSET_FROM_BOTTOM) {
     document.querySelectorAll(`a[href="#${anchorId}"]`).forEach(link => {
       link.addEventListener('click', function (e) {
         e.preventDefault();
@@ -654,7 +655,7 @@
         const scrollTop =
           window.pageYOffset +
           rect.top -
-          (viewportHeight - CTA_SCROLL_OFFSET_FROM_BOTTOM);
+          (viewportHeight - offsetFromBottom);
 
         window.scrollTo({
           top: scrollTop,
@@ -665,12 +666,10 @@
   }
 
   // Bind all bottom-anchors that should land near the bottom of the viewport
-  [
-    'pilot-cta',
-    'wat-je-krijgt-cta',
-    'werkwijze-cta',
-    'faq-cta'
-  ].forEach(bindBottomAnchorScroll);
+  bindBottomAnchorScroll('pilot-cta', PILOT_SCROLL_OFFSET_FROM_BOTTOM);
+  bindBottomAnchorScroll('wat-je-krijgt-cta');
+  bindBottomAnchorScroll('werkwijze-cta');
+  bindBottomAnchorScroll('faq-cta');
 </script>
 </body>
 </html>
