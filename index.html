@@ -3,35 +3,310 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KarperLab</title>
+
+  <title>KarperLab – Persoonlijke karpercoaching</title>
+  <meta name="description" content="KarperLab biedt persoonlijke karpercoaching voor drukbezette vissers in Noord-Holland. Ontvang een concreet aanvalsplan en vang vaker met je beperkte vistijd. Vraag de pilot-sessie aan." />
+    <meta name="theme-color" content="#111417" />
+
+  <!-- Open Graph (basis) -->
+  <meta property="og:title" content="KarperLab – Persoonlijke karpercoaching" />
+  <meta property="og:description" content="Ontvang een concreet aanvalsplan om vaker te vangen met je beperkte vistijd. Vraag de pilot-sessie aan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.karperlab.nl" />
+  <meta property="og:image" content="https://www.karperlab.nl/assets/img/Logo_KarperLab_v1.1_creme.png" />
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
+    :root {
+      /* KarperLab palette (anthracite + warm light) */
+      --kl-ink: #111417;        /* darkest */
+      --kl-anth-900: #111417;   /* anthracite (deeper) */
+      --kl-anth-800: #2A3036;   /* slightly lighter */
+      --kl-anth-700: #343C44;   /* borders on dark */
+
+      --kl-bg: #F5F2EA;         /* warm offwhite */
+      --kl-surface: #FFFFFF;    /* cards */
+      --kl-surface-2: #F0ECE3;  /* soft section surface */
+      --kl-border: #D8D2C6;     /* subtle border */
+
+      --kl-text: #1B1F23;       /* primary text */
+      --kl-muted: #6E747B;      /* muted text */
+
+      --kl-accent: #D1B06A;     /* warm gold accent */
+      --kl-accent-2: #B89446;   /* darker gold hover */
+      --kl-radius: 18px;
+      --kl-shadow-sm: 0 10px 22px rgba(17, 20, 23, 0.10);
+      --kl-shadow-md: 0 18px 40px rgba(17, 20, 23, 0.12);
+    }
+
+    body {
+      background: var(--kl-bg);
+      color: var(--kl-text);
+    }
+
+    /* Hero meta text should be readable on dark background */
+    .hero .text-muted {
+      color: rgba(246,247,245,0.70) !important;
+    }
+
+    /* Ensure hero (left column) text stays readable on dark background */
+    .hero-copy {
+      color: #F6F7F5;
+    }
+    .hero-copy h1,
+    .hero-copy h2,
+    .hero-copy h3,
+    .hero-copy .fw-bold,
+    .hero-copy .fw-semibold {
+      color: #F6F7F5;
+    }
+    .hero-copy .lead {
+      color: rgba(246,247,245,0.92);
+    }
+    .hero-copy p {
+      color: rgba(246,247,245,0.88);
+    }
+
+    /* Headings in content */
+    h1, h2, h3, .fw-bold {
+      color: var(--kl-text);
+      letter-spacing: -0.01em;
+    }
+
+    /* Accent button (CTA) */
+    .btn-accent {
+      --bs-btn-color: #111417;
+      --bs-btn-bg: var(--kl-accent);
+      --bs-btn-border-color: var(--kl-accent);
+      --bs-btn-hover-color: #111417;
+      --bs-btn-hover-bg: var(--kl-accent-2);
+      --bs-btn-hover-border-color: var(--kl-accent-2);
+      --bs-btn-active-color: #111417;
+      --bs-btn-active-bg: #a67f34;
+      --bs-btn-active-border-color: #A67F34;
+      box-shadow: 0 8px 20px rgba(17, 20, 23, 0.12);
+    }
+
+    /* Brand link color */
+    a { color: #2A4B3F; }
+    a:hover { color: #203A31; }
+
     /* Responsive logo sizing */
     .navbar-brand img {
       height: 40px;
       width: auto;
     }
-
     @media (min-width: 992px) {
-      .navbar-brand img {
-        height: 64px;
+      .navbar-brand img { height: 64px; }
+    }
+
+    /* Improve anchor jumps */
+    section { scroll-margin-top: 96px; }
+
+    /* Navbar: solid dark background */
+    .navbar {
+      background: var(--kl-anth-900) !important;
+    }
+
+    /* Navbar brand: no background chip */
+    .navbar .navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+
+
+    .navbar .navbar-brand img {
+      display: block;
+    }
+
+    .navbar .nav-link { color: rgba(246,247,245,0.92); }
+    .navbar .nav-link:hover { color: #FFFFFF; }
+    .navbar .navbar-brand { color: #111417; }
+
+    .navbar-toggler { border-color: rgba(255,255,255,0.3); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* Mobile menu: keep links readable when the navbar collapses */
+    @media (max-width: 991.98px) {
+      .navbar .navbar-collapse {
+        background: rgba(17, 20, 23, 0.96);
+        border-radius: 14px;
+        padding: 0.75rem;
+        margin-top: 0.5rem;
+        box-shadow: 0 12px 30px rgba(17, 20, 23, 0.25);
       }
     }
-  
-    /* Improve anchor jumps (so headings aren't tight to the top) */
-    section {
-      scroll-margin-top: 96px;
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(31, 36, 40, 0.96), rgba(17, 20, 23, 0.92));
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #F6F7F5;
+    }
+
+
+    /* Surfaces */
+    .kl-card {
+      background: var(--kl-surface);
+      border: 1px solid var(--kl-border);
+      border-radius: var(--kl-radius);
+      box-shadow: var(--kl-shadow-sm);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .kl-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--kl-shadow-md);
+    }
+
+    .kl-surface {
+      background: var(--kl-surface);
+      border: 1px solid var(--kl-border);
+      border-radius: var(--kl-radius);
+      box-shadow: var(--kl-shadow-sm);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .kl-surface:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--kl-shadow-md);
+    }
+
+    .kl-surface-2 {
+      background: var(--kl-surface-2);
+      border: 1px solid var(--kl-border);
+      border-radius: var(--kl-radius);
+      box-shadow: var(--kl-shadow-sm);
+    }
+
+    .kl-shadow {
+      box-shadow: 0 14px 34px rgba(17, 20, 23, 0.10);
+    }
+    .text-muted {
+      color: var(--kl-muted) !important;
+    }
+
+    /* Full-width section bands (alternating light/cream) */
+    .kl-band {
+      padding: 3.25rem 0;
+    }
+    @media (min-width: 992px) {
+      .kl-band { padding: 4.25rem 0; }
+    }
+    .kl-band--light {
+      background: #FFFFFF;
+    }
+    .kl-band--cream {
+      background: var(--kl-bg);
+    }
+    .kl-band--dark {
+      background: var(--kl-anth-900);
+      color: rgba(246,247,245,0.92);
+    }
+    .kl-band--dark h1,
+    .kl-band--dark h2,
+    .kl-band--dark h3,
+    .kl-band--dark .fw-bold,
+    .kl-band--dark .fw-semibold {
+      color: #F6F7F5;
+    }
+    .kl-band--dark .text-muted {
+      color: rgba(246,247,245,0.70) !important;
+    }
+    /* If a section is dark but contains white cards, keep card text dark */
+    .kl-band--dark .kl-card {
+      background: var(--kl-surface);
+      color: var(--kl-text);
+      border-color: var(--kl-border);
+    }
+    .kl-band--dark .kl-card .text-muted {
+      color: var(--kl-muted) !important;
+    }
+    .kl-band--dark .kl-card h3,
+    .kl-band--dark .kl-card .fw-semibold {
+      color: var(--kl-text);
+    }
+    .kl-band--dark .kl-section-photo {
+      border-color: rgba(255,255,255,0.10);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.38);
+    }
+
+    /* Section layout helpers (no background box anymore) */
+    .kl-panel {
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+    }
+    .kl-panel--tint {
+      background: transparent;
+    }
+
+    /* Section photos (banner-style) */
+    .kl-section-photo {
+      width: 100%;
+      aspect-ratio: 21 / 9;            /* wide banner */
+      height: auto;
+      object-fit: cover;
+      object-position: center;
+      border-radius: var(--kl-radius);
+      border: 1px solid var(--kl-border);
+      box-shadow: 0 14px 34px rgba(17, 20, 23, 0.12);
+      display: block;
+      background: #0f1215;            /* prevents white flash while loading */
+    }
+    /* On smaller screens: slightly less wide so the subject stays visible */
+    @media (max-width: 575.98px) {
+      .kl-section-photo {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    /* Per-image cropping helpers (optional) */
+    .pos-top { object-position: center 20%; }
+    .pos-mid { object-position: center 45%; }
+    .pos-low { object-position: center 70%; }
+    /* Specific fixes */
+    .pos-reels { object-position: center 68%; }   /* center reels: less top cut-off */
+    .pos-fisher { object-position: center 60%; }  /* show more of the angler (not just head) */
+
+    /* Fix: ensure text stays readable inside the white hero card */
+    .hero .kl-card {
+      color: var(--kl-text);
+    }
+    .hero .kl-card h1,
+    .hero .kl-card h2,
+    .hero .kl-card h3,
+    .hero .kl-card .fw-bold {
+      color: var(--kl-text);
+    }
+    .hero .kl-card .text-muted {
+      color: var(--kl-muted) !important;
     }
   </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-white border-bottom">
+
+<nav class="navbar navbar-expand-lg border-bottom">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#top">
       <img
-        src="assets/img/Logo_KarperLab_v1.0_crop.png"
+        src="assets/img/Logo_KarperLab_v1.1_invert.png"
         alt="KarperLab logo"
         class="d-block"
       >
@@ -42,141 +317,229 @@
     </button>
 
     <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link" href="#voor-wie">Voor wie</a></li>
         <li class="nav-item"><a class="nav-link" href="#wat-je-krijgt">Wat je krijgt</a></li>
         <li class="nav-item"><a class="nav-link" href="#werkwijze">Werkwijze</a></li>
-        <li class="nav-item"><a class="btn btn-primary ms-lg-3" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="btn btn-accent ms-lg-3" href="#pilot">Pilot aanvragen</a></li>
       </ul>
     </div>
   </div>
 </nav>
-  <header id="top" class="py-4">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-8">
-          <h1 class="display-5 fw-bold mb-2">KarperLab</h1>
-          <p class="lead mb-3">Karpercoaching voor drukbezette vissers die met weinig vistijd tóch vaker willen vangen.</p>
-          <p class="mb-0 text-muted">Startregio: Noord-Holland.</p>
+
+<header id="top" class="hero py-5">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8 hero-copy">
+        <h1 class="display-5 fw-bold mb-2">Maak van elke sessie een vangst</h1>
+        <p class="lead mb-3">Persoonlijke karpercoaching voor drukbezette vissers in Noord-Holland. In één pilot-sessie krijg je een concreet plan om vaker te vangen met je beperkte vistijd.</p>
+        <p class="mb-4">Beperkte plekken • antwoord binnen 48 uur</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-accent" href="#pilot">Vraag de pilot aan</a>
+          <a class="btn btn-outline-light" href="#wat-je-krijgt">Bekijk wat je krijgt</a>
         </div>
-        <div class="col-lg-4">
-          <div class="p-4 bg-light rounded">
-            <h2 class="h5 mb-2">Snel een sessie aanvragen</h2>
-            <p class="mb-3">Mail je water + je doel, dan reageer ik met een voorstel.</p>
-            <a class="btn btn-primary w-100" href="#contact">Mail voor een sessie</a>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="p-4 rounded kl-card kl-shadow">
+          <h2 class="h5 mb-2">Pilot-sessie</h2>
+          <p class="mb-3">3 uur • materiaalcheck + wateranalyse + aanvalsplan</p>
+          <div class="d-flex align-items-baseline gap-2 mb-3">
+            <div class="h3 mb-0">€249</div>
+            <div class="text-muted">introductie</div>
+          </div>
+          <a class="btn btn-accent w-100" href="#pilot">Pilot aanvragen</a>
+          <div class="text-muted small mt-2">Prijsanker: uitgebreide sessie vanaf €399.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="voor-wie" class="kl-band kl-band--cream">
+    <div class="container">
+      <div class="kl-panel">
+      <h2 class="h4 mb-3">Voor wie is dit?</h2>
+      <img class="kl-section-photo mb-4 pos-mid" src="assets/img/photos/voorwie_drone-banner.jpg" alt="Stek aan het water van bovenaf" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/voorwie_drone-banner.jpeg';">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="h-100 p-4 border rounded kl-card">
+            <h3 class="h6">Weinig tijd</h3>
+            <p class="mb-0">Je werkt veel en wilt dat elke sessie telt.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="h-100 p-4 border rounded kl-card">
+            <h3 class="h6">Vaak blanken</h3>
+            <p class="mb-0">Je vangt te weinig en zoekt een aanpak die wél werkt.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="h-100 p-4 border rounded kl-card">
+            <h3 class="h6">Bereid te investeren</h3>
+            <p class="mb-0">Je wilt gericht verbeteren met praktische coaching.</p>
           </div>
         </div>
       </div>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main class="py-5">
+  <section id="wat-je-krijgt" class="kl-band kl-band--light">
     <div class="container">
-
-      <section id="voor-wie" class="mb-5">
-        <h2 class="h4 mb-3">Voor wie is dit?</h2>
-        <div class="row g-3">
-          <div class="col-md-4">
-            <div class="h-100 p-4 border rounded">
-              <h3 class="h6">Weinig tijd</h3>
-              <p class="mb-0">Je werkt veel en wilt dat elke sessie telt.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="h-100 p-4 border rounded">
-              <h3 class="h6">Vaak blanken</h3>
-              <p class="mb-0">Je vangt te weinig en zoekt een aanpak die wél werkt.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="h-100 p-4 border rounded">
-              <h3 class="h6">Bereid om te investeren</h3>
-              <p class="mb-0">Je wilt gericht verbeteren met praktische coaching.</p>
-            </div>
+      <div class="kl-panel">
+      <h2 class="h4 mb-3">Wat je krijgt</h2>
+      <img class="kl-section-photo mb-4 pos-reels" src="assets/img/photos/watjekrijgt_materiaal_detail.jpg" alt="Detail van molen en lijn" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/faq_water_textuur.jpg';">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="h-100 p-4 rounded kl-surface kl-shadow">
+            <h3 class="h6">Materiaalcheck</h3>
+            <p class="mb-0">We lopen je set-up door en finetunen rigs, montage en voer zodat je efficiënter vist.</p>
           </div>
         </div>
-      </section>
-
-      <section id="wat-je-krijgt" class="mb-5">
-        <h2 class="h4 mb-3">Wat je krijgt</h2>
-        <div class="row g-3">
-          <div class="col-md-4">
-            <div class="h-100 p-4 bg-light rounded">
-              <h3 class="h6">Materiaalcheck</h3>
-              <p class="mb-0">Tips om je rigs, montage en voer effectiever te maken. We kunnen samen een rig knopen en finetunen.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="h-100 p-4 bg-light rounded">
-              <h3 class="h6">Wateranalyse</h3>
-              <p class="mb-0">We lopen je water af en zoeken naar patronen, hotspots en logische stekken.</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="h-100 p-4 bg-light rounded">
-              <h3 class="h6">Concreet aanvalsplan</h3>
-              <p class="mb-0">Een plan dat past bij jouw tijd: waar, wanneer, hoe en waarmee je dit water het beste bevist.</p>
-            </div>
+        <div class="col-md-4">
+          <div class="h-100 p-4 rounded kl-surface kl-shadow">
+            <h3 class="h6">Wateranalyse</h3>
+            <p class="mb-0">We zoeken patronen en logische hotspots op jouw water (observatie, stekkeuze, aanpak).</p>
           </div>
         </div>
-      </section>
-
-      <section id="werkwijze" class="mb-5">
-        <h2 class="h4 mb-3">Hoe verloopt een sessie?</h2>
-        <div class="row g-3">
-          <div class="col-md-4">
-            <div class="h-100 p-4 border rounded">
-              <div class="fw-semibold mb-1">1) Kennismaken + materiaal</div>
-              <div class="text-muted">Kort kennismaken, jouw set-up bekijken, uitleg en optimaliseren.</div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="h-100 p-4 border rounded">
-              <div class="fw-semibold mb-1">2) Naar het water</div>
-              <div class="text-muted">Rondje lopen met voer/uitrusting, observeren en stekken bepalen.</div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="h-100 p-4 border rounded">
-              <div class="fw-semibold mb-1">3) Plan van aanpak</div>
-              <div class="text-muted">We zetten alles om naar een praktische aanpak voor jouw situatie.</div>
-            </div>
+        <div class="col-md-4">
+          <div class="h-100 p-4 rounded kl-surface kl-shadow">
+            <h3 class="h6">Concreet aanvalsplan</h3>
+            <p class="mb-0">Een plan dat past bij jouw tijd: waar, wanneer, hoe en waarmee jij dit water het beste bevist.</p>
           </div>
         </div>
-      </section>
+      </div>
+      </div>
+    </div>
+  </section>
 
-      <section id="contact" class="p-4 bg-light rounded">
-        <h2 class="h4 mb-2">Contact</h2>
-        <p class="mb-3">Wil je een coachingssessie boeken? Mail me met:</p>
-        <ul class="mb-3">
-          <li>op welk water je vooral vist (globaal)</li>
-          <li>hoe vaak je gemiddeld gaat</li>
-          <li>wat je nu het meeste tegenhoudt</li>
-        </ul>
-        <p class="mb-0">Mail: <a href="mailto:info@karperlab.nl" class="fw-semibold">info@karperlab.nl</a></p>
-      </section>
+  <section id="werkwijze" class="kl-band kl-band--cream">
+    <div class="container">
+      <div class="kl-panel">
+      <h2 class="h4 mb-3">Hoe verloopt de pilot?</h2>
+      <img class="kl-section-photo mb-4 pos-fisher" src="assets/img/photos/werkwijze_silhouet_vissen.jpg" alt="Silhouet van een visser bij zonsondergang" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/faq_water_textuur.jpg';">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="h-100 p-4 border rounded kl-card">
+            <div class="fw-semibold mb-1">1) Intake + materiaal</div>
+            <div class="text-muted">Kort kennismaken, jouw set-up beoordelen en direct verbeteren waar het telt.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="h-100 p-4 border rounded kl-card">
+            <div class="fw-semibold mb-1">2) Naar het water</div>
+            <div class="text-muted">We lopen je water af, observeren en bepalen de meest logische stekken/aanpak.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="h-100 p-4 border rounded kl-card">
+            <div class="fw-semibold mb-1">3) Plan van aanpak</div>
+            <div class="text-muted">Je krijgt een helder plan + vervolgstappen. Later stuur ik je een korte samenvatting.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
 
-      <footer class="mt-5 pt-4 border-top">
+  <section id="faq" class="kl-band kl-band--light">
+    <div class="container">
+      <div class="kl-panel">
+      <h2 class="h4 mb-3">FAQ</h2>
+      <img class="kl-section-photo mb-4 pos-top" src="assets/img/photos/faq_water_textuur.jpg" alt="Rustige rimpels op het water" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/watjekrijgt_materiaal_detail.jpg';">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="h-100 p-4 rounded kl-surface kl-shadow">
+            <div class="fw-semibold mb-1">Hoe lang duurt de pilot?</div>
+            <div class="text-muted">Ongeveer 3 uur (intake, materiaalcheck, wateranalyse en plan).</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-4 rounded kl-surface kl-shadow">
+            <div class="fw-semibold mb-1">Moet ik nieuwe spullen kopen?</div>
+            <div class="text-muted">Nee. We werken met je huidige materiaal. Als iets echt loont, geef ik gericht advies.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-4 rounded kl-surface kl-shadow">
+            <div class="fw-semibold mb-1">Waar doe je dit?</div>
+            <div class="text-muted">Startregio: Noord-Holland. Tot ~45 min rijden vanaf Zaanstad inbegrepen; daarbuiten stemmen we vooraf af.</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-4 rounded kl-surface kl-shadow">
+            <div class="fw-semibold mb-1">Waarom een pilot?</div>
+            <div class="text-muted">Dit is de snelle, no-nonsense versie om te kijken of KarperLab bij jou (en je water) past.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pilot" class="kl-band kl-band--dark">
+    <div class="container">
+      <div class="kl-panel">
+      <h2 class="h4 mb-2">Pilot aanvragen</h2>
+      <img class="kl-section-photo mb-4 pos-mid" src="assets/img/photos/pilot_karper_in_water.jpg" alt="Karper in het water" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/img/photos/faq_water_textuur.jpg';">
+      <p class="mb-3">Wil je meedoen aan de pilot (validatie)? Mail me met de info hieronder. Dan reageer ik met een voorstel en de eerstvolgende mogelijkheid.</p>
+
+      <ul class="mb-3 text-muted">
+        <li>Op welk water/regio je vooral vist (globaal)</li>
+        <li>Hoe vaak je gemiddeld gaat</li>
+        <li>Wat je nu het meeste tegenhoudt / je doel</li>
+        <li>Telefoonnummer (optioneel)</li>
+      </ul>
+
+      <div class="d-flex flex-column flex-sm-row gap-2">
+        <a class="btn btn-accent flex-fill" href="mailto:info@karperlab.nl?subject=KarperLab%20pilot-aanvraag&body=Beste%20KarperLab%2C%0A%0AIk%20wil%20graag%20een%20pilot-sessie%20aanvragen.%0A%0A1%29%20Regio/water%20%28globaal%29%3A%0A2%29%20Hoe%20vaak%20vis%20ik%20gemiddeld%3A%20%0A3%29%20Grootste%20uitdaging/doel%3A%20%0ATelefoonnummer%20%28optioneel%29%3A%20%0A%0AGroet%2C%0A">Mail voor de pilot</a>
+        <a class="btn btn-outline-light flex-fill" href="#top">Terug naar boven</a>
+      </div>
+
+      <p class="text-muted small mt-3 mb-0">Tip: zet in je mail ook even je beschikbaarheid (dagen/avonden/weekend). Reactie binnen 48 uur.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" class="kl-band kl-band--light">
+    <div class="container">
+      <div class="kl-panel">
+      <h2 class="h4 mb-2">Privacy & cookies</h2>
+      <p class="mb-2">Deze site gebruikt geen tracking en plaatst geen marketingcookies. De enige actie is een <em>mailto</em>-link: je e-mailapp opent en jij beslist of je het bericht verstuurt.</p>
+      <p class="mb-0 text-muted small">Als we later analytics of embeds toevoegen, komt hier een update (en eventueel een cookie-banner). Vragen: <a href="mailto:info@karperlab.nl">info@karperlab.nl</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="kl-band kl-band--dark">
+    <div class="container">
+      <footer class="pt-4">
         <div class="row g-3 align-items-center">
           <div class="col-md-6">
             <div class="fw-semibold">KarperLab</div>
             <div class="text-muted small">Karpercoaching in Noord-Holland (en omgeving).</div>
           </div>
           <div class="col-md-6 text-md-end">
-            <a class="link-secondary me-3" href="#top">Naar boven</a>
-            <a class="link-secondary" href="mailto:info@karperlab.nl">info@karperlab.nl</a>
+            <a class="link-light text-decoration-none me-3" href="#top">Naar boven</a><a class="link-light text-decoration-none me-3" href="#privacy">Privacy</a>
+            <a class="link-light text-decoration-none" href="mailto:info@karperlab.nl">info@karperlab.nl</a>
             <div class="text-muted small mt-2">© <span id="year"></span> KarperLab</div>
           </div>
         </div>
       </footer>
-
     </div>
-  </main>
+  </section>
 
-  <!-- Bootstrap JS (optioneel, voor dropdowns/modals later) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</main>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </html>
