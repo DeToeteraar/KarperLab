@@ -371,6 +371,53 @@
       color: var(--kl-muted) !important;
     }
 
+    /* Footer brand (clickable logo) — mirror navbar brand behaviour */
+    .footer-brand{
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      padding:0;
+      border-radius:0;
+      background:transparent;
+      border:0;
+      box-shadow:none;
+      color:inherit;
+      text-decoration:none;
+    }
+    .footer-brand img{
+      height:32px;
+      width:auto;
+      display:block;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+      will-change: transform;
+    }
+    @media (min-width: 992px){
+      .footer-brand img{height:40px}
+    }
+    .footer-brand:hover img,
+    .footer-brand:focus img,
+    .footer-brand:focus-visible img {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(17,20,23,.12);
+    }
+
+    /* subtle separator above the footer (works with dark band) */
+    .kl-band--dark > .container > footer{
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding-top:12px;
+    }
+
+    /* Small email icon inside footer */
+    .kl-band--dark .footer-contact .email-icon{
+      width:16px;
+      height:16px;
+      vertical-align:middle;
+      margin-right:6px;
+      display:inline-block;
+      stroke:currentColor;
+      fill:none;
+    }
+
     /* Floating 'back to top' button */
     .btn-scroll-top{
       position:fixed;
@@ -671,7 +718,10 @@
           </div>
           <div class="col-md-6 text-md-end">
             <a class="link-light text-decoration-none me-3" href="#top">Naar boven</a><a class="link-light text-decoration-none me-3" href="#privacy">Privacy</a>
-            <a class="link-light text-decoration-none" href="mailto:info@karperlab.nl">info@karperlab.nl</a>
+            <a class="link-light text-decoration-none" href="mailto:info@karperlab.nl">
+              <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" fill="none"/><polyline points="3 7 12 13 21 7" stroke="currentColor" fill="none"/></svg>
+              <span>info@karperlab.nl</span>
+            </a>
             <div class="text-muted small mt-2">© <span id="year"></span> KarperLab</div>
           </div>
         </div>
