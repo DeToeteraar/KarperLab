@@ -407,10 +407,12 @@
       padding-top:12px;
     }
 
-    /* Small email icon inside footer */
+    /* Small email icon inside footer (force exact size) */
     .kl-band--dark .footer-contact .email-icon{
-      width:16px;
-      height:16px;
+      width:16px !important;
+      height:16px !important;
+      max-width:16px !important;
+      max-height:16px !important;
       vertical-align:middle;
       margin-right:6px;
       display:inline-block;
@@ -719,7 +721,7 @@
           <div class="col-md-6 text-md-end">
             <a class="link-light text-decoration-none me-3" href="#top">Naar boven</a><a class="link-light text-decoration-none me-3" href="#privacy">Privacy</a>
             <a class="link-light text-decoration-none" href="mailto:info@karperlab.nl">
-              <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" fill="none"/><polyline points="3 7 12 13 21 7" stroke="currentColor" fill="none"/></svg>
+              <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true" style="width:16px;height:16px;vertical-align:middle;"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" fill="none"/><polyline points="3 7 12 13 21 7" stroke="currentColor" fill="none"/></svg>
               <span>info@karperlab.nl</span>
             </a>
             <div class="text-muted small mt-2">© <span id="year"></span> KarperLab</div>
