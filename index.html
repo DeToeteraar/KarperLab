@@ -131,9 +131,19 @@
     .navbar-brand img {
       height: 40px;
       width: auto;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+      will-change: transform;
     }
     @media (min-width: 992px) {
       .navbar-brand img { height: 64px; }
+    }
+
+    /* Make logo gently lift on hover/focus like the cards */
+    .navbar-brand:hover img,
+    .navbar-brand:focus img,
+    .navbar-brand:focus-visible img {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(17,20,23,.12);
     }
 
     /* Improve anchor jumps */
