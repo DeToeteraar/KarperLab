@@ -370,6 +370,28 @@
     .hero .kl-card .text-muted {
       color: var(--kl-muted) !important;
     }
+
+    /* Floating 'back to top' button */
+    .btn-scroll-top{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:48px;
+      height:48px;
+      padding:0;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 10px 24px rgba(15,23,42,.18);
+      z-index:9999;
+      transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+    }
+    .btn-scroll-top:hover,
+    .btn-scroll-top:focus{transform:translateY(-2px);box-shadow:0 16px 36px rgba(15,23,42,.18)}
+    .btn-scroll-top svg{width:20px;height:20px;display:block}
+    @media (min-width: 1200px){.btn-scroll-top{right:32px;bottom:32px}}
+
   </style>
   <!-- Structured data: LocalBusiness & Service -->
   <script type="application/ld+json">
@@ -693,6 +715,22 @@
   bindBottomAnchorScroll('wat-je-krijgt-cta');
   bindBottomAnchorScroll('werkwijze-cta');
   bindBottomAnchorScroll('faq-cta');
+</script>
+
+<!-- Floating 'Back to top' button -->
+<a id="btn-scroll-top" href="#top" class="btn btn-accent btn-scroll-top d-none" aria-label="Terug naar boven">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>
+</a>
+
+<script>
+  (function(){
+    const btn = document.getElementById('btn-scroll-top');
+    if(!btn) return;
+    const toggle = () => { if(window.scrollY > 200) btn.classList.remove('d-none'); else btn.classList.add('d-none'); };
+    document.addEventListener('scroll', toggle, {passive:true});
+    document.addEventListener('DOMContentLoaded', toggle);
+    btn.addEventListener('click', function(e){ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
+  })();
 </script>
 </body>
 </html>
