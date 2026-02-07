@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import SmoothScrollAnchors from "./components/SmoothScrollAnchors";
 
 export const metadata: Metadata = {
     title: "KarperLab – Persoonlijke karpercoaching",
@@ -96,6 +97,7 @@ export default function RootLayout({
             </head>
             <body>
                 <GoogleAnalytics />
+                <SmoothScrollAnchors />
                 <Navbar />
                 <Hero />
                 {children}
