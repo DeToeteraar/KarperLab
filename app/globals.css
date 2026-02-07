@@ -85,6 +85,16 @@ a:hover {
     color: #203A31;
 }
 
+ul:not(.navbar-nav),
+ol {
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+}
+
+li {
+    margin-bottom: 0.25rem;
+}
+
 /* Improve anchor jumps */
 section {
     scroll-margin-top: var(--kl-nav-scroll-offset);
