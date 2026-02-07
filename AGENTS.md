@@ -16,16 +16,14 @@
 
 ## Agent Regels
 
-### Commits
-- Werk in kleine, omkeerbare stappen
-- Commit vaak (logische deelstappen)
+### Commits & Pushes
+- Werk in kleine, omkeerbare stappen.
+- **Commit vaak** (logische deelstappen) voor een duidelijk overzicht van de voortgang.
+- **Push spaarzaam**: Netlify start een nieuwe build (en verbruikt 'build minutes') bij elke `git push`. Verzamel commits en push pas als een logisch blok aan werk volledig lokaal is getest en klaar is voor deployment.
 - Commit format:
   ```
   [STAP] Korte beschrijving
-  
-  - Wat: ...
-  - Waarom: ...
-  - Status: getest/ok | niet getest (reden)
+  ...
   ```
 
 ### Conversieflow
