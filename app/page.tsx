@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Card from './components/Card';
+import PilotForm from './components/PilotForm';
 
 export default function HomePage() {
     const mailtoLink = `mailto:info@karperlab.nl?subject=${encodeURIComponent('KarperLab pilot-aanvraag')}&body=${encodeURIComponent(`Beste KarperLab,
@@ -188,28 +189,16 @@ Groet,
                         className="kl-section-photo mb-4 pos-mid"
                         loading="lazy"
                     />
-                    <p className="mb-3">Wil je meedoen aan de pilot? Mail me met de info hieronder. Dan reageer ik met een voorstel en de eerstvolgende mogelijkheid.</p>
+                    <p className="mb-3">Wil je meedoen aan de pilot? Vul het formulier hieronder in. Dan reageer ik met een voorstel en de eerstvolgende mogelijkheid.</p>
 
-                    <ul className="mb-3 text-muted">
-                        <li>Op welk water je vooral vist (naam + plaats)</li>
-                        <li>Hoeveel ervaring je hebt (beginner / gemiddeld / gevorderd + aantal jaren)</li>
-                        <li>Hoe vaak je gemiddeld vist en hoeveel tijd je meestal hebt per sessie</li>
-                        <li>Wat je nu het meeste tegenhoudt en wat je graag wilt bereiken</li>
-                        <li>Telefoonnummer – optioneel</li>
-                    </ul>
-                    <p className="text-muted small mb-3">Pilot-sessie: €249 (±3 uur). Uitgebreide sessie mogelijk vanaf €399.</p>
-                    <div id="pilot-cta" aria-hidden="true"></div>
+                    <PilotForm />
+                    <div id="pilot-cta" aria-hidden="true" style={{ marginTop: '2rem' }}></div>
 
-                    <div className="d-flex flex-column flex-sm-row gap-2">
-                        <a href={mailtoLink} className="btn btn-accent flex-fill">
-                            Mail voor de pilot
-                        </a>
+                    <div className="d-flex flex-column flex-sm-row gap-2 mt-4">
                         <Link href="#top" className="btn btn-outline-light flex-fill">
                             Terug naar boven
                         </Link>
                     </div>
-
-                    <p className="text-muted small mt-3 mb-0">Tip: zet in je mail ook even je beschikbaarheid (dagen/avonden/weekend). Reactie binnen 48 uur.</p>
                 </div>
             </section>
 
