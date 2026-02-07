@@ -1,12 +1,489 @@
-/* Placeholder for global styles - will be populated with KarperLab design system */
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* KarperLab Design System - Migrated from static HTML */
+
+:root {
+    /* KarperLab palette (anthracite + warm light) */
+    --kl-ink: #111417;
+    /* darkest */
+    --kl-anth-900: #111417;
+    /* anthracite (deeper) */
+    --kl-nav-divider-h: 12px;
+    /* thickness of the light band under the navbar */
+    --kl-nav-pad-y: 0.95rem;
+    /* navbar vertical padding (thicker bar) */
+    --kl-nav-scroll-offset: 140px;
+    /* anchor offset for in-page links */
+    --kl-anth-800: #2A3036;
+    /* slightly lighter */
+    --kl-anth-700: #343C44;
+    /* borders on dark */
+
+    --kl-bg: #F5F2EA;
+    /* warm offwhite */
+    --kl-surface: #FFFFFF;
+    /* cards */
+    --kl-surface-2: #F0ECE3;
+    /* soft section surface */
+    --kl-border: #D8D2C6;
+    /* subtle border */
+
+    --kl-text: #1B1F23;
+    /* primary text */
+    --kl-muted: #6E747B;
+    /* muted text */
+
+    --kl-accent: #D1B06A;
+    /* warm gold accent */
+    --kl-accent-2: #B89446;
+    /* darker gold hover */
+    --kl-radius: 18px;
+    --kl-shadow-sm: 0 10px 22px rgba(17, 20, 23, 0.10);
+    --kl-shadow-md: 0 18px 40px rgba(17, 20, 23, 0.12);
+    --kl-hero-bg: linear-gradient(135deg, rgba(31, 36, 40, 0.96), rgba(17, 20, 23, 0.92));
 }
 
-html,
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    background: var(--kl-bg);
+    color: var(--kl-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--kl-text);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+/* Links */
+a {
+    color: #2A4B3F;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #203A31;
+}
+
+/* Improve anchor jumps */
+section {
+    scroll-margin-top: var(--kl-nav-scroll-offset);
+}
+
+/* Text utilities */
+.text-muted {
+    color: var(--kl-muted) !important;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+/* Layout utilities */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Surfaces & Cards */
+.kl-card {
+    background: var(--kl-surface);
+    border: 1px solid var(--kl-border);
+    border-radius: var(--kl-radius);
+    box-shadow: var(--kl-shadow-sm);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.kl-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--kl-shadow-md);
+}
+
+.kl-surface {
+    background: var(--kl-surface);
+    border: 1px solid var(--kl-border);
+    border-radius: var(--kl-radius);
+    box-shadow: var(--kl-shadow-sm);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.kl-surface:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--kl-shadow-md);
+}
+
+.kl-surface-2 {
+    background: var(--kl-surface-2);
+    border: 1px solid var(--kl-border);
+    border-radius: var(--kl-radius);
+    box-shadow: var(--kl-shadow-sm);
+}
+
+.kl-shadow {
+    box-shadow: 0 14px 34px rgba(17, 20, 23, 0.10);
+}
+
+/* Full-width section bands (alternating light/cream) */
+.kl-band {
+    padding: 3.25rem 0;
+}
+
+@media (min-width: 992px) {
+    .kl-band {
+        padding: 4.25rem 0;
+    }
+}
+
+.kl-band--light {
+    background: #FFFFFF;
+}
+
+.kl-band--cream {
+    background: var(--kl-bg);
+}
+
+.kl-band--dark {
+    background: var(--kl-anth-900);
+    color: rgba(246, 247, 245, 0.92);
+}
+
+.kl-band--dark h1,
+.kl-band--dark h2,
+.kl-band--dark h3,
+.kl-band--dark .fw-bold,
+.kl-band--dark .fw-semibold {
+    color: #F6F7F5;
+}
+
+.kl-band--dark .text-muted {
+    color: rgba(246, 247, 245, 0.70) !important;
+}
+
+/* If a section is dark but contains white cards, keep card text dark */
+.kl-band--dark .kl-card {
+    background: var(--kl-surface);
+    color: var(--kl-text);
+    border-color: var(--kl-border);
+}
+
+.kl-band--dark .kl-card .text-muted {
+    color: var(--kl-muted) !important;
+}
+
+.kl-band--dark .kl-card h3,
+.kl-band--dark .kl-card .fw-semibold {
+    color: var(--kl-text);
+}
+
+.kl-band--dark .kl-section-photo {
+    border-color: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.38);
+}
+
+/* Section photos (banner-style) */
+.kl-section-photo {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--kl-radius);
+    border: 1px solid var(--kl-border);
+    box-shadow: 0 14px 34px rgba(17, 20, 23, 0.12);
+    display: block;
+    background: #0f1215;
+}
+
+@media (max-width: 575.98px) {
+    .kl-section-photo {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* Per-image cropping helpers */
+.pos-top {
+    object-position: center 20%;
+}
+
+.pos-mid {
+    object-position: center 45%;
+}
+
+.pos-low {
+    object-position: center 70%;
+}
+
+.pos-reels {
+    object-position: center 75%;
+}
+
+.pos-fisher {
+    object-position: center 47%;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 160ms ease;
+}
+
+.btn-accent {
+    color: #111417;
+    background: var(--kl-accent);
+    border-color: var(--kl-accent);
+    box-shadow: 0 8px 20px rgba(17, 20, 23, 0.12);
+}
+
+.btn-accent:hover {
+    color: #111417;
+    background: var(--kl-accent-2);
+    border-color: var(--kl-accent-2);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(17, 20, 23, 0.16);
+}
+
+.btn-outline-light {
+    color: #F6F7F5;
+    background: transparent;
+    border-color: rgba(246, 247, 245, 0.5);
+}
+
+.btn-outline-light:hover {
+    color: #111417;
+    background: rgba(246, 247, 245, 0.95);
+    border-color: rgba(246, 247, 245, 0.95);
+}
+
+/* Utility classes */
+.fw-bold {
+    font-weight: 700;
+}
+
+.fw-semibold {
+    font-weight: 600;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.p-4 {
+    padding: 1.5rem;
+}
+
+.py-5 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-inline-flex {
+    display: inline-flex;
+}
+
+.d-none {
+    display: none;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-3 {
+    gap: 1rem;
+}
+
+.gap-4 {
+    gap: 1.5rem;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-baseline {
+    align-items: baseline;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.rounded {
+    border-radius: var(--kl-radius);
+}
+
+.border {
+    border: 1px solid var(--kl-border);
+}
+
+/* Typography scale */
+.h3 {
+    font-size: 1.75rem;
+}
+
+.h4 {
+    font-size: 1.5rem;
+}
+
+.h5 {
+    font-size: 1.25rem;
+}
+
+.h6 {
+    font-size: 1rem;
+}
+
+.small {
+    font-size: 0.875rem;
+}
+
+.display-5 {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .display-5 {
+        font-size: 2rem;
+    }
+}
+
+/* Grid system */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
+.g-3>* {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.g-4>* {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.col-md-4,
+.col-md-6,
+.col-lg-4,
+.col-lg-8 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .col-md-4 {
+        width: 33.333333%;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-4 {
+        width: 33.333333%;
+    }
+
+    .col-lg-8 {
+        width: 66.666667%;
+    }
 }
