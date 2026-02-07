@@ -9,8 +9,8 @@ export default function PilotForm() {
     // and the form tag itself to have data-netlify="true"
 
     return (
-        <div className="kl-surface p-4 p-md-5">
-            <h3 className="h4 mb-4">Pilot aanvraag formulier</h3>
+        <div className="kl-surface p-4 p-md-5 mx-auto" style={{ maxWidth: '600px' }}>
+            <h3 className="h4 mb-4 text-center">Pilot aanvraag formulier</h3>
 
             <form
                 name="pilot-aanvraag"
@@ -43,7 +43,7 @@ export default function PilotForm() {
                     </div>
 
                     {/* Ervaring */}
-                    <div className="col-md-6">
+                    <div className="col-12">
                         <label htmlFor="ervaring" className="form-label fw-semibold">
                             Niveau <span className="text-accent">*</span>
                         </label>
@@ -54,7 +54,7 @@ export default function PilotForm() {
                             <option value="gevorderd">Gevorderd</option>
                         </select>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-12">
                         <label htmlFor="jaren" className="form-label fw-semibold">
                             Aantal jaren ervaring <span className="text-accent">*</span>
                         </label>
@@ -99,7 +99,7 @@ export default function PilotForm() {
                     </div>
 
                     {/* Contact */}
-                    <div className="col-md-6">
+                    <div className="col-12">
                         <label htmlFor="email" className="form-label fw-semibold">
                             E-mailadres <span className="text-accent">*</span>
                         </label>
@@ -112,7 +112,7 @@ export default function PilotForm() {
                             required
                         />
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-12">
                         <label htmlFor="telefoon" className="form-label fw-semibold">
                             Telefoonnummer (optioneel)
                         </label>
