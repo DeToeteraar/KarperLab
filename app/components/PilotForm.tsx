@@ -9,7 +9,7 @@ export default function PilotForm() {
     // and the form tag itself to have data-netlify="true"
 
     return (
-        <div className="kl-surface p-4 p-md-5 mx-auto" style={{ maxWidth: '600px' }}>
+        <div className="kl-surface p-4 p-md-5 mx-auto" style={{ maxWidth: '500px' }}>
             <h3 className="h4 mb-4 text-center">Pilot aanvraag formulier</h3>
 
             <form
