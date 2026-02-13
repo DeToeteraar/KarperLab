@@ -1,3 +1,4 @@
+// Dit is de pagina die je ziet nadat je het formulier hebt ingevuld.
 import React from 'react';
 import Link from 'next/link';
 

@@ -1,5 +1,7 @@
+// Dit bestand is het 'geraamte' van je hele website.
+// Alles wat hier staat (zoals de Navbar en Footer) zie je op elke pagina.
 import type { Metadata } from "next";
-import "./globals.css";
+import "./globals.css"; // Hier laden we alle stijlen (kleuren, lettertypes, etc.)
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
@@ -7,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import SmoothScrollAnchors from "./components/SmoothScrollAnchors";
 
+// Metadata is informatie voor Google en social media (zoals de titel van de tab).
 export const metadata: Metadata = {
     title: "KarperLab – Persoonlijke karpercoaching",
     description: "KarperLab biedt persoonlijke karpercoaching voor drukbezette vissers in Noord-Holland. Ontvang een concreet aanvalsplan en vang vaker met je beperkte vistijd. Vraag de pilot-sessie aan.",
@@ -46,14 +49,16 @@ export const metadata: Metadata = {
     },
 };
 
+// De 'RootLayout' functie bepaalt de basisstructuur van de HTML-pagina.
 export default function RootLayout({
-    children,
+    children, // 'children' zijn de specifieke onderdelen van elke pagina (zoals in page.tsx).
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
         <html lang="nl">
             <head>
+                {/* SEO-optimalisaties en gestructureerde data voor Google */}
                 <link rel="canonical" href="https://www.karperlab.nl/" />
                 <meta name="robots" content="index,follow,max-image-preview:large" />
                 <script
@@ -96,11 +101,15 @@ export default function RootLayout({
                 />
             </head>
             <body>
+                {/* Deze onderdelen verschijnen op elke pagina */}
                 <GoogleAnalytics />
                 <SmoothScrollAnchors />
                 <Navbar />
                 <Hero />
+
+                {/* Hier komt de eigenlijke inhoud van de pagina (zoals page.tsx) */}
                 {children}
+
                 <Footer />
                 <ScrollToTop />
             </body>

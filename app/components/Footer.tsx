@@ -2,7 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+// De Footer is de onderste balk van de website (staat onderaan elke pagina).
 export default function Footer() {
+    // We berekenen automatisch het huidige jaar voor de copyright tekst.
     const currentYear = new Date().getFullYear();
 
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
+// De Hero component is het eerste grote blok bovenaan de pagina (met de hoofdtitel).
 export default function Hero() {
     return (
         <header id="hero" className="hero py-5" style={{ paddingTop: 'calc(3rem + var(--kl-nav-divider-h))' }}>

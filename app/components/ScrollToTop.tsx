@@ -1,6 +1,7 @@
+// Dit onderdeel zorgt voor de knop rechtsonder die je terug naar boven brengt.
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);

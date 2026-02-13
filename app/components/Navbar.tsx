@@ -1,3 +1,4 @@
+// 'use client' vertelt Next.js dat dit onderdeel 'interactief' is (zoals knoppen die iets doen).
 'use client';
 
 import React, { useState } from 'react';
@@ -5,12 +6,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Navbar() {
+    // We gebruiken 'useState' om te onthouden of het mobiele menu open of dicht is.
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <nav className="kl-navbar">
             <div className="container">
                 <div className="d-flex align-items-center justify-content-between">
+                    {/* Het logo van de website */}
                     <Link href="#top" className="navbar-brand d-flex align-items-center">
                         <Image
                             src="/assets/img/Logo_KarperLab_v1.1_invert.png"

@@ -1,8 +1,11 @@
+// Dit is de 'HomePage' component. Dit is wat mensen zien als ze op de hoofdpagina komen.
+// We importeren hier andere onderdelen (components) om de pagina op te bouwen.
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'; // Voor geoptimaliseerde afbeeldingen
+import Link from 'next/link';   // Voor snelle links tussen pagina's
 import Card from './components/Card';
 import PilotForm from './components/PilotForm';
+import AboutCoach from './components/AboutCoach';
 
 export default function HomePage() {
     const mailtoLink = `mailto:info@karperlab.nl?subject=${encodeURIComponent('KarperLab pilot-aanvraag')}&body=${encodeURIComponent(`Beste KarperLab,
@@ -20,9 +23,10 @@ Groet,
 
     return (
         <main>
+            {/* Een onzichtbaar punt om naar terug te scrollen */}
             <div id="top" aria-hidden="true"></div>
 
-            {/* Voor wie */}
+            {/* Sectie: Voor wie is KarperLab? */}
             <section id="voor-wie" className="kl-band kl-band--cream">
                 <div className="container">
                     <h2 className="h4 mb-3">Voor wie is dit?</h2>
@@ -60,7 +64,7 @@ Groet,
                 </div>
             </section>
 
-            {/* Wat je krijgt */}
+            {/* Sectie: Wat krijg je bij de coaching? */}
             <section id="wat-je-krijgt" className="kl-band kl-band--light">
                 <div className="container">
                     <h2 className="h4 mb-3">Wat je krijgt</h2>
@@ -99,7 +103,7 @@ Groet,
                 </div>
             </section>
 
-            {/* Werkwijze */}
+            {/* Sectie: Hoe de pilot-sessie precies werkt */}
             <section id="werkwijze" className="kl-band kl-band--cream">
                 <div className="container">
                     <h2 className="h4 mb-3">Hoe verloopt de pilot?</h2>
@@ -135,7 +139,7 @@ Groet,
                 </div>
             </section>
 
-            {/* FAQ */}
+            {/* Sectie: Veelgestelde vragen (FAQ) */}
             <section id="faq" className="kl-band kl-band--light">
                 <div className="container">
                     <h2 className="h4 mb-3">FAQ</h2>
@@ -177,7 +181,10 @@ Groet,
                 </div>
             </section>
 
-            {/* Pilot aanvragen */}
+            {/* Onderdeel over de coach (apart bestand in components/AboutCoach.tsx) */}
+            <AboutCoach />
+
+            {/* Sectie: Formulier om een pilot aan te vragen */}
             <section id="pilot" className="kl-band kl-band--dark" style={{ background: 'var(--kl-hero-bg)' }}>
                 <div className="container">
                     <h2 className="h4 mb-2">Pilot aanvragen</h2>
@@ -189,7 +196,7 @@ Groet,
                         className="kl-section-photo mb-4 pos-mid"
                         loading="lazy"
                     />
-                    <p className="mb-3">Wil je meedoen aan de pilot? Vul het formulier hieronder in. Dan reageer ik met een voorstel en de eerstvolgende mogelijkheid.</p>
+                    <p className="mb-3 text-center">Wil je meedoen aan de pilot? Vul het formulier hieronder in. Dan reageer ik met een voorstel en de eerstvolgende mogelijkheid.</p>
 
                     <PilotForm />
                     <div id="pilot-cta" aria-hidden="true" style={{ marginTop: '2rem' }}></div>

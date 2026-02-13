@@ -1,4 +1,12 @@
-/* KarperLab Design System - Migrated from static HTML */
+/* 
+  KarperLab Design System
+  
+  In dit bestand staan alle stijlen van de website:
+  - Kleuren (onder :root)
+  - Lettertypes
+  - Algemene knoppen en blokken (zoals .kl-card)
+  - Layout regels (zoals .container)
+*/
 
 :root {
     /* KarperLab palette (anthracite + warm light) */

@@ -1,3 +1,4 @@
+// Dit onderdeel zorgt dat Google Analytics werkt, zodat je kunt zien hoeveel bezoekers er zijn.
 'use client';
 
 import Script from 'next/script';
